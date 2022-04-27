@@ -13,6 +13,7 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var cells: [Cell] = []
     var hasMatches: Bool { !Self.matches(for: cells).isEmpty }
     var canCollapse: Bool { cells.contains { $0.isMatched } }
+    
     enum Constant {
         static let boardWidth = 8
         static let boardHeight = 8
@@ -25,8 +26,8 @@ final class GameViewModel: ObservableObject {
             [(-1, -1), (0, 0), (1, 1)],
             [(-1, 1), (0, 0), (1, -1)]
         ]
-        static let cellContents = ["suit.spade.fill", "circlebadge.fill", "flame.fill", "tag.circle.fill", "ladybug.fill", "face.dashed.fill"]
-        static let colors = [#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.8623957038, green: 0.2169953585, blue: 1, alpha: 1), #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 1, green: 0.8398167491, blue: 0, alpha: 1)]
+        static let cellContents = ["suit.spade.fill", "circlebadge.fill", "flame.fill", "tag.circle.fill", "ladybug.fill", "face.dashed.fill", "suit.diamond.fill"]
+        static let colors = [#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.8623957038, green: 0.2169953585, blue: 1, alpha: 1), #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 1, green: 0.8398167491, blue: 0, alpha: 1), #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)]
     }
 
     struct Cell: Identifiable, Hashable {
@@ -64,8 +65,8 @@ final class GameViewModel: ObservableObject {
 
     private static func index(x: Int, y: Int) -> Int? {
         Constant.columns.contains(x) && Constant.rows.contains(y)
-        ? x + y * Constant.boardWidth
-        : nil
+            ? x + y * Constant.boardWidth
+            : nil
     }
 
     private static func coordinate(for index: Int) -> (Int, Int) {
@@ -129,8 +130,8 @@ final class GameViewModel: ObservableObject {
                 return indices.map { board[$0] }
             }
             return [Cell(position: indices[0])]
-            + indices.prefix(upTo: indexOfMatch).map { with(board[$0]) { $0.position += Constant.boardWidth } }
-            + indices.suffix(from: indexOfMatch).dropFirst().map { board[$0] }
+                + indices.prefix(upTo: indexOfMatch).map { with(board[$0]) { $0.position += Constant.boardWidth } }
+                + indices.suffix(from: indexOfMatch).dropFirst().map { board[$0] }
         }
         .reduce(into: with(board) { _ in }) { board, column in
             for cell in column {

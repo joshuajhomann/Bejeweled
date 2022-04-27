@@ -55,12 +55,9 @@ struct GameView: View {
                     .offset(x: rect.minX, y: rect.minY)
                     .foregroundColor(Color.purple)
                     .opacity(selectionOpacity)
-                    .onAppear {
-                        selectionOpacity = 0.5
-                        withAnimation(Animation.easeInOut(duration: 1).repeatForever()) {
-                            selectionOpacity = 1.0
-                        }
-                    }
+                    .onAppear { selectionOpacity = 1.0 }
+                    .onDisappear { selectionOpacity = 0.5 }
+                    .animation(Animation.easeInOut(duration: 1).repeatForever(), value: selectionOpacity)
                     .allowsHitTesting(false)
             }
             ForEach(viewModel.cells) { cell in

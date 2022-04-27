@@ -17,7 +17,6 @@
 		03382B2E27750065003943D3 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03382B0427750065003943D3 /* GameView.swift */; };
 		03382B2F27750065003943D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03382B0527750065003943D3 /* Assets.xcassets */; };
 		03382B3027750065003943D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03382B0527750065003943D3 /* Assets.xcassets */; };
-		03382B41277502A4003943D3 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 03382B40277502A4003943D3 /* OrderedCollections */; };
 		03662981280CEF2800456844 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03662980280CEF2800456844 /* GameViewModel.swift */; };
 		03662982280CEF2900456844 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03662980280CEF2800456844 /* GameViewModel.swift */; };
 		03662984280CEF4700456844 /* PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03662983280CEF4700456844 /* PreferenceKey.swift */; };
@@ -69,7 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03382B41277502A4003943D3 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +174,6 @@
 			);
 			name = "Bejeweled (iOS)";
 			packageProductDependencies = (
-				03382B40277502A4003943D3 /* OrderedCollections */,
 			);
 			productName = "Bejeweled (iOS)";
 			productReference = 03382B0A27750065003943D3 /* Bejeweled.app */;
@@ -271,7 +268,6 @@
 			);
 			mainGroup = 03382AFD27750065003943D3;
 			packageReferences = (
-				03382B3F277502A4003943D3 /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = 03382B0B27750065003943D3 /* Products */;
 			projectDirPath = "";
@@ -753,25 +749,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		03382B3F277502A4003943D3 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-collections.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		03382B40277502A4003943D3 /* OrderedCollections */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 03382B3F277502A4003943D3 /* XCRemoteSwiftPackageReference "swift-collections" */;
-			productName = OrderedCollections;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 03382AFE27750065003943D3 /* Project object */;
 }
