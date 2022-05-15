@@ -26,7 +26,7 @@ struct GameView: View {
         ZStack(alignment: .topLeading) {
             ZStack {
                 VStack(spacing: 2)  {
-                    ForEach(0..<GameViewModel.Constant.boardWidth, id: \.self) { y in
+                    ForEach(0..<GameViewModel.Constant.boardHeight, id: \.self) { y in
                         HStack(spacing: 2) {
                             ForEach(0..<GameViewModel.Constant.boardWidth, id: \.self) { x in
                                 let index = x + y * GameViewModel.Constant.boardWidth
@@ -46,7 +46,7 @@ struct GameView: View {
                     }
                 }
             }
-                .aspectRatio(1, contentMode: .fit)
+            .aspectRatio(GameViewModel.Constant.aspectRatio, contentMode: .fit)
                 .padding()
             if let selectedIndex = selectedIndex, let rect = squares[selectedIndex] {
                 RoundedRectangle(cornerRadius: rect.width*0.1)

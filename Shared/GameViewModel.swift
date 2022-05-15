@@ -20,6 +20,7 @@ final class GameViewModel: ObservableObject {
         static let rows = (0..<boardHeight)
         static let columns = (0..<boardWidth)
         static var cellCount: Int { boardWidth * boardHeight }
+        static let aspectRatio = Double(boardWidth) / Double(boardHeight)
         static let adjacentOffsets: [[(Int, Int)]] = [
             [(0, 1), (0, 0), (0, -1)],
             [(1, 0), (0, 0), (-1, 0)],
@@ -87,8 +88,8 @@ final class GameViewModel: ObservableObject {
 
     private static func matches(for board: [Cell]) -> Set<Int> {
         Set(
-            Constant.rows.flatMap { x in
-                Constant.columns.map { y in
+            Constant.columns.flatMap { x in
+                Constant.rows.map { y in
                     (x, y)
                 }
             }
